@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Line-Following Robot | Misba Muzaffar</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fafafa;
+      color: #1f2937;
+      line-height: 1.7;
+    }
+
+    nav {
+      max-width: 950px;
+      margin: auto;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4b5563;
+    }
+
+    nav a:hover {
+      color: #111827;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 50px 30px 100px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 35px;
+      text-decoration: none;
+      color: #6b7280;
+    }
+
+    .back:hover {
+      color: #111827;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.15;
+      color: #111827;
+      margin-bottom: 20px;
+    }
+
+    .intro {
+      max-width: 760px;
+      font-size: 19px;
+      color: #4b5563;
+      margin-bottom: 35px;
+    }
+
+    .tags {
+      margin-bottom: 45px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f3f4f6;
+      padding: 6px 12px;
+      margin-right: 6px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 15px;
+      margin-bottom: 65px;
+    }
+
+    section {
+      margin-bottom: 65px;
+    }
+
+    h2 {
+      font-size: 29px;
+      color: #111827;
+      margin-bottom: 18px;
+    }
+
+    section p {
+      max-width: 780px;
+      color: #4b5563;
+      margin-bottom: 15px;
+    }
+
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .system-item {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .system-item strong {
+      display: block;
+      color: #111827;
+      margin-bottom: 5px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      background: #111827;
+      color: white;
+      padding: 11px 18px;
+      border-radius: 7px;
+      margin: 8px 8px 8px 0;
+    }
+
+    .button.secondary {
+      background: white;
+      color: #111827;
+      border: 1px solid #d1d5db;
+    }
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 30px;
+      margin-top: 80px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+
+      h1 {
+        font-size: 36px;
+      }
+
+      main {
+        padding-top: 30px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <nav>
+
+    <strong>Misba Muzaffar</strong>
+
+    <a href="../index.html">
+      Portfolio
+    </a>
+
+  </nav>
+
+
+  <main>
+
+    <a href="../index.html#projects" class="back">
+      ← Back to Projects
+    </a>
+
+
+    <!-- PROJECT INTRO -->
+
+    <p class="subtitle">
+      Embedded Systems • Robotics • Feedback Control
+    </p>
+
+    <h1>
+      Autonomous Line-Following Robot
+    </h1>
+
+    <p class="intro">
+      Designed, built, and programmed an ESP32-based autonomous robot
+      capable of detecting and following a track using photoresistors
+      and closed-loop feedback control.
+    </p>
+
+    <div class="tags">
+
+      <span class="tag">ESP32</span>
+      <span class="tag">PID Control</span>
+      <span class="tag">Photoresistors</span>
+      <span class="tag">Embedded Systems</span>
+      <span class="tag">Robotics</span>
+
+    </div>
+
+
+    <!-- MAIN IMAGE -->
+
+    <img
+      src="../images/robot/robot-main.png"
+      alt="Autonomous line-following robot"
+      class="hero-image"
+    >
+
+
+    <!-- OVERVIEW -->
+
+    <section>
+
+      <h2>Overview</h2>
+
+      <p>
+        The goal of this project was to develop an autonomous mobile robot
+        capable of navigating a track without direct human control. The
+        robot used light sensors to determine its position relative to the
+        track and continuously adjusted its wheel motion in response.
+      </p>
+
+      <p>
+        The project combined embedded programming, sensor calibration,
+        motor control, mechanical design, and feedback control into a
+        complete robotic system.
+      </p>
+
+    </section>
+
+
+    <!-- SYSTEM -->
+
+    <section>
+
+      <h2>System Design</h2>
+
+      <p>
+        The robot was built around an ESP32 microcontroller that processed
+        sensor measurements and generated commands for the motors.
+      </p>
+
+      <div class="system-grid">
+
+        <div class="system-item">
+          <strong>ESP32</strong>
+          Main microcontroller responsible for sensor processing and
+          control logic.
+        </div>
+
+        <div class="system-item">
+          <strong>Photoresistors</strong>
+          Measured reflected light to determine the robot's position
+          relative to the track.
+        </div>
+
+        <div class="system-item">
+          <strong>Motor Driver</strong>
+          Controlled the DC motors based on commands generated by
+          the ESP32.
+        </div>
+
+        <div class="system-item">
+          <strong>Potentiometers</strong>
+          Used during calibration and tuning of the sensing system.
+        </div>
+
+        <div class="system-item">
+          <strong>3D-Printed Chassis</strong>
+          Provided the mechanical structure supporting the electronics,
+          motors, wheels, and sensors.
+        </div>
+
+        <div class="system-item">
+          <strong>Light Shield</strong>
+          Reduced interference from ambient lighting around the
+          photoresistors.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTROL -->
+
+    <section>
+
+      <h2>Feedback & PID Control</h2>
+
+      <p>
+        Sensor measurements were used to estimate the robot's position
+        relative to the track. The controller then adjusted the relative
+        speed of the left and right motors to correct deviations from
+        the desired path.
+      </p>
+
+      <p>
+        PID parameters and motor speeds were tuned to balance responsiveness
+        and stability. More aggressive settings allowed faster response,
+        while more conservative settings helped reduce overshoot during
+        tighter sections of the track.
+      </p>
+
+    </section>
+
+
+    <!-- BUILD -->
+
+    <section>
+
+      <h2>Calibration & Iteration</h2>
+
+      <p>
+        The sensing and control system required iterative calibration.
+        Improvements included modifying the light shield to reduce ambient
+        interference, adjusting the position of the photoresistor circuit,
+        and tuning controller parameters for different track conditions.
+      </p>
+
+      <p>
+        This process demonstrated how mechanical design, sensing, and
+        control software interact in a real physical system.
+      </p>
+
+    </section>
+
+
+    <!-- RESOURCES -->
+
+    <section>
+
+      <h2>Project Resources</h2>
+
+      <p>
+        Additional documentation, development material, results, and
+        project media are available below.
+      </p>
+
+      <a
+        href="https://sites.google.com/ucsd.edu/ece5sp26bumblebee/home"
+        target="_blank"
+        class="button"
+      >
+        Original Project Site
+      </a>
+
+      <!-- We'll activate these when the files are uploaded -->
+
+      <!--
+      <a href="../files/robot-presentation.pdf"
+         target="_blank"
+         class="button secondary">
+        View Presentation
+      </a>
+
+      <a href="YOUR_CODE_REPOSITORY"
+         target="_blank"
+         class="button secondary">
+        View Code
+      </a>
+      -->
+
+    </section>
+
+
+    <footer>
+      © 2026 Misba Muzaffar
+    </footer>
+
+  </main>
+
+</body>
+
+</html>
