@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AR(1) Stability & Inference | Misba Muzaffar</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fafafa;
+      color: #1f2937;
+      line-height: 1.7;
+    }
+
+    nav {
+      max-width: 950px;
+      margin: auto;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4b5563;
+    }
+
+    nav a:hover {
+      color: #111827;
+    }
+
+    main {
+      max-width: 950px;
+      margin: auto;
+      padding: 50px 30px 100px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 35px;
+      text-decoration: none;
+      color: #6b7280;
+    }
+
+    .back:hover {
+      color: #111827;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.15;
+      color: #111827;
+      margin-bottom: 20px;
+    }
+
+    .intro {
+      max-width: 780px;
+      font-size: 19px;
+      color: #4b5563;
+      margin-bottom: 35px;
+    }
+
+    .tags {
+      margin-bottom: 45px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f3f4f6;
+      padding: 6px 12px;
+      margin-right: 6px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    section {
+      margin-bottom: 65px;
+    }
+
+    h2 {
+      font-size: 29px;
+      color: #111827;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      color: #111827;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      max-width: 800px;
+      color: #4b5563;
+      margin-bottom: 15px;
+    }
+
+    .equation {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 25px 0;
+      font-size: 22px;
+      text-align: center;
+      color: #111827;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .result-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .result-number {
+      font-size: 30px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 5px;
+    }
+
+    .result-card p {
+      margin-bottom: 0;
+      color: #6b7280;
+    }
+
+    .highlight {
+      background: white;
+      border-left: 4px solid #111827;
+      padding: 22px;
+      margin-top: 25px;
+      color: #374151;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      background: #111827;
+      color: white;
+      padding: 11px 18px;
+      border-radius: 7px;
+      margin: 8px 8px 8px 0;
+    }
+
+    .button.secondary {
+      background: white;
+      color: #111827;
+      border: 1px solid #d1d5db;
+    }
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 30px;
+      margin-top: 80px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      main {
+        padding-top: 30px;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <nav>
+
+    <strong>Misba Muzaffar</strong>
+
+    <a href="../index.html">
+      Portfolio
+    </a>
+
+  </nav>
+
+
+  <main>
+
+    <a href="../index.html#projects" class="back">
+      ← Back to Projects
+    </a>
+
+
+    <!-- INTRO -->
+
+    <p class="subtitle">
+      Time Series • Statistical Inference • Monte Carlo Simulation
+    </p>
+
+    <h1>
+      Detecting Stability Near the Unit-Root Boundary
+    </h1>
+
+    <p class="intro">
+      An independent simulation study examining how reliably statistical
+      inference can distinguish stable AR(1) processes from unit-root
+      behavior, especially when the autoregressive coefficient lies very
+      close to the stability boundary.
+    </p>
+
+    <div class="tags">
+
+      <span class="tag">Python</span>
+      <span class="tag">Statistics</span>
+      <span class="tag">Time Series</span>
+      <span class="tag">ADF Test</span>
+      <span class="tag">Monte Carlo Simulation</span>
+
+    </div>
+
+
+    <!-- RESEARCH QUESTION -->
+
+    <section>
+
+      <h2>Research Question</h2>
+
+      <p>
+        How reliably can we detect changes in the stability of a time-series
+        system, and how does statistical inference behave under different
+        conditions?
+      </p>
+
+      <p>
+        The project focuses on AR(1) processes near the unit-root boundary,
+        where a process may technically be stable but still behave very
+        similarly to a unit-root process.
+      </p>
+
+    </section>
+
+
+    <!-- MODEL -->
+
+    <section>
+
+      <h2>The AR(1) Model</h2>
+
+      <div class="equation">
+        X<sub>t</sub> = βX<sub>t−1</sub> + ε<sub>t</sub>
+      </div>
+
+      <p>
+        The coefficient β controls the persistence of the process.
+        When |β| &lt; 1, the process is stationary. When β = 1,
+        the process contains a unit root.
+      </p>
+
+    </section>
+
+
+    <!-- METHOD -->
+
+    <section>
+
+      <h2>Method</h2>
+
+      <p>
+        I used Monte Carlo simulation together with the Augmented
+        Dickey-Fuller test to study both Type I error and statistical power.
+      </p>
+
+      <p>
+        The main experiment compared β = 0.8, 0.9, 0.95, and 0.99 across
+        sample sizes T = 50, 100, 500, and 1000, with 10,000 simulations
+        for each condition.
+      </p>
+
+      <p>
+        A separate experiment examined β = 0.99 in greater detail across
+        additional sample sizes in order to understand how slowly power
+        improves when the process lies very close to the unit-root boundary.
+      </p>
+
+    </section>
+
+
+    <!-- RESULTS -->
+
+    <section>
+
+      <h2>Key Results</h2>
+
+      <div class="results-grid">
+
+        <div class="result-card">
+          <div class="result-number">5.9%</div>
+          <p>
+            Estimated Type I error under the unit-root null, close to the
+            nominal 5% significance level.
+          </p>
+        </div>
+
+        <div class="result-card">
+          <div class="result-number">95%</div>
+          <p>
+            Approximate power for β = 0.95 at T = 500.
+          </p>
+        </div>
+
+        <div class="result-card">
+          <div class="result-number">12%</div>
+          <p>
+            Approximate power for β = 0.99 at T = 500.
+          </p>
+        </div>
+
+        <div class="result-card">
+          <div class="result-number">31%</div>
+          <p>
+            Approximate power for β = 0.99 even at T = 1000.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="highlight">
+        A process can be technically stable, with β &lt; 1, yet still be
+        extremely difficult to distinguish statistically from a unit-root
+        process when β lies very close to 1.
+      </div>
+
+    </section>
+
+
+    <!-- INTERPRETATION -->
+
+    <section>
+
+      <h2>Interpretation</h2>
+
+      <p>
+        Statistical power generally increased with sample size, as expected.
+        However, the simulations showed that proximity to the unit-root
+        boundary matters substantially.
+      </p>
+
+      <p>
+        When β = 0.99, even large samples often provided limited power.
+        This illustrates that the reliability of inference depends not only
+        on the amount of available data, but also on how close the underlying
+        system lies to the stability boundary.
+      </p>
+
+    </section>
+
+
+    <!-- RESOURCES -->
+
+    <section>
+
+      <h2>Project Resources</h2>
+
+      <p>
+        The full simulation notebook and supporting presentation are
+        available below.
+      </p>
+
+      <a
+        href="https://github.com/fnumisbamuzaffar-sudo/AR1-Stability-Inference"
+        target="_blank"
+        class="button"
+      >
+        View Code
+      </a>
+
+      <!-- We'll activate this once the PDF is uploaded -->
+      <!--
+      <a
+        href="../files/ar1/AR1-presentation.pdf"
+        target="_blank"
+        class="button secondary"
+      >
+        View Presentation
+      </a>
+      -->
+
+    </section>
+
+
+    <footer>
+      © 2026 Misba Muzaffar
+    </footer>
+
+  </main>
+
+</body>
+
+</html>
