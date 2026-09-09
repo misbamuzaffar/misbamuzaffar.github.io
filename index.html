@@ -1,92 +1,424 @@
-<section id="projects">
+<!DOCTYPE html>
+<html lang="en">
 
-  <h2>Selected Projects</h2>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div class="projects">
+  <title>Misba Muzaffar | Portfolio</title>
 
-    <div class="card">
-      <h3>AR(1) Time-Series Stability & Inference</h3>
-      <p>
-        Built Python simulations of autoregressive processes to investigate
-        stability, unit-root behavior, and the reliability of statistical
-        inference across varying sample sizes and parameter values.
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fafafa;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 25px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h2 {
+      font-size: 20px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #4b5563;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #111827;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 100px auto 110px;
+      padding: 0 30px;
+    }
+
+    .hero .small-title {
+      color: #6b7280;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.1;
+      margin-bottom: 22px;
+      color: #111827;
+    }
+
+    .hero .description {
+      max-width: 700px;
+      font-size: 19px;
+      color: #4b5563;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 65px 30px;
+    }
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 35px;
+      color: #111827;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 30px;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 21px;
+      color: #111827;
+    }
+
+    .card p {
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #f3f4f6;
+      padding: 5px 10px;
+      margin: 3px 3px 3px 0;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .about p {
+      max-width: 760px;
+      color: #4b5563;
+      font-size: 17px;
+    }
+
+    .education-box {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 30px;
+      max-width: 760px;
+    }
+
+    .education-box h3 {
+      margin-bottom: 5px;
+    }
+
+    .education-box p {
+      color: #6b7280;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 50px auto 0;
+      padding: 40px 30px;
+      border-top: 1px solid #e5e7eb;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav div {
+        margin-top: 12px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 18px;
+      }
+
+      .hero {
+        margin-top: 65px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <h2>Misba Muzaffar</h2>
+
+    <div>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#about">About</a>
+
+      <a href="https://github.com/fnumishamuzaffar-sudo"
+         target="_blank">
+        GitHub
+      </a>
+    </div>
+
+  </nav>
+
+
+  <!-- INTRO -->
+
+  <main>
+
+    <div class="hero">
+
+      <p class="small-title">
+        Electrical Engineering • Statistics • Machine Learning
       </p>
 
-      <span class="tag">Python</span>
-      <span class="tag">Statistics</span>
-      <span class="tag">Time Series</span>
+      <h1>
+        Hi, I'm Misba.
+      </h1>
+
+      <p class="description">
+
+        I'm an Electrical Engineering student at UC San Diego interested in
+        statistical modeling, machine learning, quantitative research, and
+        engineering systems. I enjoy exploring mathematical models and
+        developing them into applications that address real-world problems.
+
+      </p>
+
     </div>
 
 
-    <div class="card">
-      <h3>Smart Context-Aware Sound Classifier</h3>
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+      <h2>Selected Projects</h2>
+
+      <div class="projects">
+
+
+        <!-- AR1 -->
+
+        <div class="card">
+
+          <h3>AR(1) Time-Series Stability & Inference</h3>
+
+          <p>
+            Built Python simulations of autoregressive processes to investigate
+            stability, unit-root behavior, and the reliability of statistical
+            inference across varying sample sizes and parameter values.
+          </p>
+
+          <span class="tag">Python</span>
+          <span class="tag">Statistics</span>
+          <span class="tag">Time Series</span>
+
+        </div>
+
+
+        <!-- SOUND CLASSIFIER -->
+
+        <div class="card">
+
+          <h3>Smart Context-Aware Sound Classifier</h3>
+
+          <p>
+            Developing a CNN-based environmental sound classification system
+            using spectrograms and UrbanSound8K while comparing lightweight
+            CNNs with transfer-learning architectures.
+          </p>
+
+          <span class="tag">Python</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">CNN</span>
+          <span class="tag">Machine Learning</span>
+
+        </div>
+
+
+        <!-- ROBOT -->
+
+        <div class="card">
+
+          <h3>Autonomous Line-Following Robot</h3>
+
+          <p>
+            Built and programmed an ESP32-based autonomous robot using
+            photoresistors and feedback control to detect and follow a track
+            while dynamically controlling wheel motion.
+          </p>
+
+          <span class="tag">ESP32</span>
+          <span class="tag">Embedded Systems</span>
+          <span class="tag">Control</span>
+
+        </div>
+
+
+        <!-- IEEE -->
+
+        <div class="card">
+
+          <h3>Calming Device for People with Autism</h3>
+
+          <p>
+            Developed embedded C software for an IEEE UCSD project that
+            measured environmental sound levels and automatically adjusted
+            audio volume in response to surrounding noise.
+          </p>
+
+          <span class="tag">C</span>
+          <span class="tag">Embedded Systems</span>
+          <span class="tag">IEEE UCSD</span>
+
+        </div>
+
+
+        <!-- FISH -->
+
+        <div class="card">
+
+          <h3>Robotic Fish Prototype</h3>
+
+          <p>
+            Built a bio-inspired robotic fish using servo-driven oscillatory
+            tail motion, magnetic stabilization, and a lightweight mechanical
+            structure for controlled propulsion.
+          </p>
+
+          <span class="tag">Robotics</span>
+          <span class="tag">Servo Motors</span>
+          <span class="tag">Prototyping</span>
+
+        </div>
+
+
+        <!-- JAVA -->
+
+        <div class="card">
+
+          <h3>Substitute Management System</h3>
+
+          <p>
+            Developed a Java application to automate substitute-teacher
+            tracking, generate personalized records, and provide search,
+            file-management, printing, and sharing functionality.
+          </p>
+
+          <span class="tag">Java</span>
+          <span class="tag">Software Development</span>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+
+      <h2>Education</h2>
+
+      <div class="education-box">
+
+        <h3>University of California, San Diego</h3>
+
+        <p>
+          B.S. Electrical Engineering
+        </p>
+
+        <p>
+          Machine Learning & Controls Depth — Planned
+        </p>
+
+        <p>
+          September 2024 – Present
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about" class="about">
+
+      <h2>About</h2>
+
       <p>
-        Developing a CNN-based environmental sound classification system
-        using spectrograms and UrbanSound8K, while comparing lightweight
-        CNNs with transfer-learning architectures.
+
+        My interests lie at the intersection of statistics, machine learning,
+        and engineering. I particularly enjoy understanding models from first
+        principles, testing their behavior computationally, and exploring how
+        they can be extended to increasingly complex real-world systems.
+
       </p>
 
-      <span class="tag">Python</span>
-      <span class="tag">PyTorch</span>
-      <span class="tag">CNN</span>
-      <span class="tag">Machine Learning</span>
-    </div>
+    </section>
+
+  </main>
 
 
-    <div class="card">
-      <h3>Autonomous Line-Following Robot</h3>
-      <p>
-        Built and programmed an ESP32-based autonomous robot using
-        photoresistors and feedback control to detect and follow a track
-        while dynamically controlling wheel motion.
-      </p>
+  <footer>
 
-      <span class="tag">ESP32</span>
-      <span class="tag">Embedded Systems</span>
-      <span class="tag">Control</span>
-    </div>
+    © 2026 Misba Muzaffar
+
+  </footer>
 
 
-    <div class="card">
-      <h3>Calming Device for People with Autism</h3>
-      <p>
-        Developed embedded C software for an IEEE UCSD project that
-        measured environmental sound levels and automatically adjusted
-        audio volume in response to surrounding noise.
-      </p>
+</body>
 
-      <span class="tag">C</span>
-      <span class="tag">Embedded Systems</span>
-      <span class="tag">IEEE UCSD</span>
-    </div>
-
-
-    <div class="card">
-      <h3>Robotic Fish Prototype</h3>
-      <p>
-        Built a bio-inspired robotic fish using servo-driven oscillatory
-        tail motion, magnetic stabilization, and a lightweight mechanical
-        structure for controlled propulsion.
-      </p>
-
-      <span class="tag">Robotics</span>
-      <span class="tag">Servo Motors</span>
-      <span class="tag">Prototyping</span>
-    </div>
-
-
-    <div class="card">
-      <h3>Substitute Management System</h3>
-      <p>
-        Developed a Java application to automate substitute-teacher
-        tracking, generate personalized records, and provide search,
-        file-management, printing, and sharing functionality.
-      </p>
-
-      <span class="tag">Java</span>
-      <span class="tag">Software Development</span>
-    </div>
-
-  </div>
-
-</section>
+</html>
