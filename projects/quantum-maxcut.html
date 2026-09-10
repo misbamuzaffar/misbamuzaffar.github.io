@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Quantum vs. Classical Max-Cut</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 24px 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px 80px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 46px;
+      margin-bottom: 20px;
+    }
+
+    .intro {
+      font-size: 20px;
+      color: #4b5563;
+      margin-bottom: 25px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e5e7eb;
+      padding: 7px 12px;
+      margin: 4px 6px 4px 0;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 15px;
+      margin: 45px 0 60px;
+    }
+
+    section {
+      margin-bottom: 55px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    p {
+      color: #374151;
+      margin-bottom: 16px;
+    }
+
+    .equation {
+      background: white;
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+      font-family: monospace;
+    }
+
+    .results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .result-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .result-card h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-right: 10px;
+      margin-top: 10px;
+      font-weight: 600;
+      background: #111827;
+      color: white;
+    }
+
+    .button.secondary {
+      background: white;
+      color: #111827;
+      border: 1px solid #d1d5db;
+    }
+
+    footer {
+      margin-top: 70px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      .intro {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="../index.html">← Back to Portfolio</a>
+  </nav>
+
+  <main class="container">
+
+    <p class="subtitle">
+      Quantum Computing • Optimization • Graph Algorithms
+    </p>
+
+    <h1>Quantum vs. Classical Max-Cut</h1>
+
+    <p class="intro">
+      A comparative exploration of quantum and classical approaches to the
+      Max-Cut optimization problem, focusing on solution quality and algorithm behavior.
+    </p>
+
+    <div>
+      <span class="tag">Python</span>
+      <span class="tag">Quantum Computing</span>
+      <span class="tag">QAOA</span>
+      <span class="tag">Optimization</span>
+    </div>
+
+    <img
+      src="../images/maxcut-results.png"
+      alt="Quantum versus classical Max-Cut results"
+      class="hero-image"
+    >
+
+    <section>
+      <h2>Problem</h2>
+
+      <p>
+        Max-Cut is a combinatorial optimization problem where the goal is to divide
+        the vertices of a graph into two groups so that the number, or total weight,
+        of edges crossing between the groups is maximized.
+      </p>
+
+      <p>
+        This project explores how a quantum optimization approach compares with
+        classical optimization methods on Max-Cut instances.
+      </p>
+    </section>
+
+    <section>
+      <h2>Approach</h2>
+
+      <p>
+        I implemented a quantum approach using the Quantum Approximate Optimization
+        Algorithm (QAOA) and compared its behavior against classical methods.
+      </p>
+
+      <p>
+        The project focuses on evaluating how the approaches differ in optimization
+        behavior, solution quality, and performance across graph instances.
+      </p>
+    </section>
+
+    <section>
+      <h2>QAOA</h2>
+
+      <p>
+        QAOA is a hybrid quantum-classical algorithm designed for combinatorial
+        optimization. A parameterized quantum circuit generates candidate solutions,
+        while a classical optimizer updates the circuit parameters to improve the
+        objective value.
+      </p>
+
+      <div class="equation">
+        Maximize Cut(G) by assigning graph vertices to two partitions.
+      </div>
+    </section>
+
+    <section>
+      <h2>What I Explored</h2>
+
+      <div class="results">
+
+        <div class="result-card">
+          <h3>Quantum</h3>
+          <p>
+            Implemented QAOA as a quantum optimization method for solving Max-Cut.
+          </p>
+        </div>
+
+        <div class="result-card">
+          <h3>Classical</h3>
+          <p>
+            Compared quantum results against classical optimization approaches.
+          </p>
+        </div>
+
+        <div class="result-card">
+          <h3>Analysis</h3>
+          <p>
+            Evaluated differences in solution quality and optimization behavior.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <h2>Why This Project Matters</h2>
+
+      <p>
+        This project helped me explore the connection between optimization,
+        graph problems, and emerging quantum algorithms while also comparing
+        them with established classical techniques.
+      </p>
+
+      <p>
+        It also gave me experience thinking critically about when a newer
+        computational method offers meaningful advantages and how those
+        advantages should be evaluated experimentally.
+      </p>
+    </section>
+
+    <section>
+      <h2>Project Resources</h2>
+
+      <a
+        href="https://github.com/fnumisbamuzaffar-sudo/quantum-vs-classical-maxcut"
+        target="_blank"
+        class="button"
+      >
+        View Code
+      </a>
+
+    </section>
+
+    <footer>
+      © 2026 Misba Muzaffar
+    </footer>
+
+  </main>
+
+</body>
+</html>
