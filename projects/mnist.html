@@ -153,8 +153,7 @@
   <h1>MNIST Classification: Least Squares & Randomized Features</h1>
 
   <p class="subtitle">
-    ECE 174 — Introduction to Machine Learning |
-    UC San Diego | Fall 2026
+    Supervised Learning & Computational Experimentation 
   </p>
 
   <span class="tag">Machine Learning</span>
@@ -163,9 +162,10 @@
   <span class="tag">Numerical Linear Algebra</span>
   <span class="tag">Feature Engineering</span>
 
-  <img src="../images/mnist/mnist-main.png"
-       alt="MNIST handwritten digit classification"
-       class="project-image">
+  <img src="../images/mnist/relu-results.png"
+     alt="ReLU classification error versus feature dimensionality"
+     class="project-image"
+     style="max-width: 650px; display: block; margin: 20px auto;">
 
   <div class="metrics">
 
@@ -363,16 +363,17 @@
     </tr>
   </table>
 
-  <figure>
-    <img src="../images/mnist/relu-results.png"
-         alt="ReLU classification error versus feature dimensionality"
-         class="project-image">
+<figure>
+  <img src="../images/mnist/relu-results.png"
+       alt="ReLU classification error versus number of random features"
+       class="project-image"
+       style="max-width: 650px; display: block; margin: 20px auto;">
 
-    <figcaption>
-      Training and testing error as a function of the number
-      of randomized ReLU features.
-    </figcaption>
-  </figure>
+  <figcaption>
+    Training and testing error versus the number of randomized
+    ReLU features for One-vs-All and One-vs-One classifiers.
+  </figcaption>
+</figure>
 
   <h2>Key Findings</h2>
 
@@ -442,12 +443,19 @@
 
   <h2>Project Resources</h2>
 
-  <a href="https://docs.google.com/document/d/18jUIekme-qoV-yeRNZLf9SNAln_aIH1FyIu4sNGPTb0/edit"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="button">
-    View Project Report
-  </a>
+<a href="https://github.com/misbamuzaffar/MNIST-Least-Squares-Classification"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="button">
+  View Source Code
+</a>
+
+<a href="../files/mnist/mnist-report.pdf"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="button">
+  View Full Report
+</a>
 
   <!-- Add GitHub repository link once available -->
 
