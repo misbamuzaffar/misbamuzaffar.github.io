@@ -1,0 +1,462 @@
+projects/mnist.html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MNIST Classification | Misba Muzaffar</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8fafc;
+      color: #1f2937;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 24px;
+    }
+
+    h1 {
+      font-size: 34px;
+      line-height: 1.3;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: #1f2937;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .subtitle {
+      color: #6b7280;
+    }
+
+    .project-image {
+      width: 100%;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8edf3;
+      color: #374151;
+      padding: 5px 12px;
+      margin: 4px;
+      border-radius: 15px;
+      font-size: 13px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .metric {
+      background: white;
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 28px;
+    }
+
+    .metric span {
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .equation {
+      background: #eef2f7;
+      padding: 18px;
+      border-radius: 8px;
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 19px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      margin: 20px 0;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    th {
+      background: #e8edf3;
+    }
+
+    .highlight {
+      background: #eef4f8;
+      font-weight: bold;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 18px;
+      background: #1f2937;
+      color: white;
+      border-radius: 6px;
+      margin: 8px 8px 8px 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    figcaption {
+      text-align: center;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    figure {
+      margin: 25px 0;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <a href="../index.html">← Back to Portfolio</a>
+
+  <h1>MNIST Classification: Least Squares & Randomized Features</h1>
+
+  <p class="subtitle">
+    ECE 174 — Introduction to Machine Learning |
+    UC San Diego | Fall 2026
+  </p>
+
+  <span class="tag">Machine Learning</span>
+  <span class="tag">Python</span>
+  <span class="tag">NumPy</span>
+  <span class="tag">Numerical Linear Algebra</span>
+  <span class="tag">Feature Engineering</span>
+
+  <img src="../images/mnist/mnist-main.png"
+       alt="MNIST handwritten digit classification"
+       class="project-image">
+
+  <div class="metrics">
+
+    <div class="metric">
+      <strong>96.58%</strong>
+      <span>Best Test Accuracy</span>
+    </div>
+
+    <div class="metric">
+      <strong>60,000</strong>
+      <span>Training Images</span>
+    </div>
+
+    <div class="metric">
+      <strong>10,000</strong>
+      <span>Testing Images</span>
+    </div>
+
+    <div class="metric">
+      <strong>45</strong>
+      <span>Pairwise Classifiers</span>
+    </div>
+
+  </div>
+
+  <h2>Project Overview</h2>
+
+  <p>
+    This project investigates supervised multiclass classification
+    of handwritten digits using least-squares learning and randomized
+    feature transformations.
+  </p>
+
+  <p>
+    Rather than relying on prebuilt machine learning classifiers,
+    I implemented the classification algorithms using Python and
+    NumPy, applying linear algebra and numerical methods to train,
+    evaluate, and compare different models.
+  </p>
+
+  <p>
+    The primary objective was to understand how classification
+    strategy, nonlinear feature representation, and feature
+    dimensionality influence predictive performance and generalization.
+  </p>
+
+  <h2>Dataset & Preprocessing</h2>
+
+  <p>
+    The MNIST dataset consists of grayscale images of handwritten
+    digits from 0 to 9. Each 28 × 28 image was represented as a
+    784-dimensional feature vector.
+  </p>
+
+  <ul>
+    <li>60,000 training images and 10,000 testing images.</li>
+    <li>Pixel values normalized to the range [0, 1].</li>
+    <li>Augmented feature vectors to incorporate a bias term.</li>
+    <li>Binary target labels represented by +1 and −1.</li>
+  </ul>
+
+  <h2>Mathematical Foundations</h2>
+
+  <p>
+    Model parameters were estimated by minimizing the squared
+    difference between predicted outputs and target labels.
+  </p>
+
+  <div class="equation">
+    w* = argmin<sub>w</sub> ‖X<sub>aug</sub>w − y‖²
+  </div>
+
+  <p>
+    The Moore–Penrose pseudoinverse was used to obtain a
+    least-squares solution without requiring the normal-equation
+    matrix to be invertible.
+  </p>
+
+  <div class="equation">
+    w* = X<sub>aug</sub><sup>†</sup>y
+  </div>
+
+  <h2>Classification Strategies</h2>
+
+  <h3>One-vs-All (OvA)</h3>
+
+  <p>
+    Ten binary classifiers were trained independently, with each
+    classifier distinguishing one digit from all remaining digits.
+    The predicted digit was selected using the maximum classifier score.
+  </p>
+
+  <h3>One-vs-One (OvO)</h3>
+
+  <p>
+    Forty-five binary classifiers were trained using every unique
+    pair of digits. Each classifier casts a vote for one of its
+    two classes, and the digit receiving the most votes becomes
+    the final prediction.
+  </p>
+
+  <h2>Baseline Classification Results</h2>
+
+  <table>
+    <tr>
+      <th>Method</th>
+      <th>Training Accuracy</th>
+      <th>Test Accuracy</th>
+    </tr>
+
+    <tr>
+      <td>One-vs-All</td>
+      <td>85.77%</td>
+      <td>86.03%</td>
+    </tr>
+
+    <tr class="highlight">
+      <td>One-vs-One</td>
+      <td>93.78%</td>
+      <td>92.97%</td>
+    </tr>
+  </table>
+
+  <p>
+    One-vs-One achieved substantially better classification
+    performance, improving test accuracy by 6.94 percentage points
+    compared with One-vs-All. Both approaches exhibited relatively
+    small differences between training and testing performance.
+  </p>
+
+  <h2>Randomized Feature Engineering</h2>
+
+  <p>
+    To investigate nonlinear feature representations, the original
+    pixel vectors were transformed into a new feature space using
+    a randomly generated weight matrix and bias vector.
+  </p>
+
+  <div class="equation">
+    h(x) = g(Wx + b)
+  </div>
+
+  <p>
+    Four activation functions were experimentally evaluated:
+  </p>
+
+  <ul>
+    <li><strong>Identity:</strong> g(z) = z</li>
+    <li><strong>Sigmoid:</strong> g(z) = 1 / (1 + e<sup>−z</sup>)</li>
+    <li><strong>Sinusoidal:</strong> g(z) = sin(z)</li>
+    <li><strong>ReLU:</strong> g(z) = max(0, z)</li>
+  </ul>
+
+  <p>
+    The classifiers were retrained using these transformed features.
+    Different feature counts were investigated to understand the
+    relationship between dimensionality and learning performance.
+  </p>
+
+  <h2>Experimental Results</h2>
+
+  <p>
+    Test accuracy comparison using 1,000 randomized features:
+  </p>
+
+  <table>
+    <tr>
+      <th>Feature Mapping</th>
+      <th>OvA Accuracy</th>
+      <th>OvO Accuracy</th>
+    </tr>
+
+    <tr>
+      <td>Identity</td>
+      <td>86.03%</td>
+      <td>92.97%</td>
+    </tr>
+
+    <tr>
+      <td>Sigmoid</td>
+      <td>93.17%</td>
+      <td>95.74%</td>
+    </tr>
+
+    <tr>
+      <td>Sinusoidal</td>
+      <td>13.85%</td>
+      <td>13.53%</td>
+    </tr>
+
+    <tr class="highlight">
+      <td>ReLU</td>
+      <td>94.43%</td>
+      <td>96.58%</td>
+    </tr>
+  </table>
+
+  <figure>
+    <img src="../images/mnist/relu-results.png"
+         alt="ReLU classification error versus feature dimensionality"
+         class="project-image">
+
+    <figcaption>
+      Training and testing error as a function of the number
+      of randomized ReLU features.
+    </figcaption>
+  </figure>
+
+  <h2>Key Findings</h2>
+
+  <ul>
+    <li>
+      ReLU produced the strongest results among the four evaluated
+      feature mappings, achieving 96.58% test accuracy with OvO.
+    </li>
+
+    <li>
+      Increasing the number of ReLU and sigmoid features reduced
+      classification errors, with diminishing improvements at
+      higher feature counts.
+    </li>
+
+    <li>
+      The identity transformation provided little improvement
+      over the original pixel representation.
+    </li>
+
+    <li>
+      The sinusoidal mapping performed poorly on unseen data,
+      demonstrating that increasing dimensionality alone does
+      not guarantee improved generalization.
+    </li>
+
+    <li>
+      One-vs-One generally outperformed One-vs-All, although it
+      required training more binary classifiers.
+    </li>
+  </ul>
+
+  <h2>What I Learned</h2>
+
+  <p>
+    This project strengthened my understanding of least-squares
+    optimization, numerical linear algebra, multiclass learning,
+    and feature engineering.
+  </p>
+
+  <p>
+    Through implementing and evaluating the models, I explored
+    how mathematical choices influence practical machine learning
+    performance. In particular, the experiments highlighted the
+    importance of evaluating feature representations rather than
+    assuming that increasing model complexity will necessarily
+    produce better results.
+  </p>
+
+  <h2>Future Extensions</h2>
+
+  <p>
+    Potential extensions include investigating regularized least
+    squares, alternative random weight distributions, dimensionality
+    reduction, and performance across multiple random seeds.
+    These experiments could further clarify the relationship
+    between computational complexity and generalization.
+  </p>
+
+  <h2>Tools & Technologies</h2>
+
+  <span class="tag">Python</span>
+  <span class="tag">NumPy</span>
+  <span class="tag">SciPy</span>
+  <span class="tag">Matplotlib</span>
+  <span class="tag">Google Sheets</span>
+
+  <h2>Project Resources</h2>
+
+  <a href="https://docs.google.com/document/d/18jUIekme-qoV-yeRNZLf9SNAln_aIH1FyIu4sNGPTb0/edit"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="button">
+    View Project Report
+  </a>
+
+  <!-- Add GitHub repository link once available -->
+
+  <footer>
+    © 2026 Misba Muzaffar
+  </footer>
+
+</div>
+
+</body>
+</html>
